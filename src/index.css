@@ -69,9 +69,9 @@ code {
 }
 
 img {
-  max-width: 520px;
+  /* max-width: 520px; */
   height: auto;
-  max-height: 500px;
+  /* max-height: 500px; */
   object-fit: contain;
 }
 p,

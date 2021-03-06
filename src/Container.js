@@ -24,7 +24,9 @@ function App() {
     bottom_left: "",
     fontSize_top: "",
     width: "",
+    display: "",
   });
+  const [display, setDisplay] = useState({ display: "none" });
   const [topText, setTopText] = useState("Downloading memes from Internet");
   const [bottomText, setbottomText] = useState("Making your own memes");
   const [meme, setMemes] = useState(null);
@@ -48,6 +50,14 @@ function App() {
     var num = Math.floor(Math.random() * 100);
     setActiveMeme(meme[num]);
   };
+  const ShowImguploadOption = () => {
+    if (display.display == "none") {
+      setDisplay({ display: "inline-block" });
+    } else {
+      setDisplay({ display: "none" });
+      randomMemeImgHandler();
+    }
+  };
   const setTextHandler = (e) => {
     if (e.target.name === "top-text") {
       setTopText(e.target.value);
@@ -61,6 +71,15 @@ function App() {
     domtoimage.toBlob(imgRef.current).then(function (blob) {
       FileSaver.saveAs(blob, "meme.png");
     });
+  };
+  const UploadImgHandler = (e) => {
+    if (e.target.files[0]) {
+      var imgObj = {
+        type: "User-img",
+        url: URL.createObjectURL(e.target.files[0]),
+      };
+      setActiveMeme(imgObj);
+    }
   };
   const styleHandler = (e) => {
     setActiveMemeStyle({ ...activeMemeStyle, [e.target.name]: e.target.value });
@@ -84,7 +103,6 @@ function App() {
         change={setTextHandler}
         label="Add text at the bottom"
       />
-
       <div className="card mt-2">
         <Settings
           placeholder="Add font Color"
@@ -177,6 +195,16 @@ function App() {
 
       <Button name="Next image" click={randomMemeImgHandler} />
       <Button name="Download" click={downloadMemeHandler} />
+      <Button name="Upload an Image" click={ShowImguploadOption} />
+      <InputField
+        name="upload-img"
+        type="file"
+        accept="image/*"
+        placeholder="Upload a image"
+        change={UploadImgHandler}
+        label="Upload a image"
+        style={display}
+      />
     </ContainerHoc>
   );
 }
