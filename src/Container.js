@@ -15,14 +15,15 @@ function App() {
   const [activeMeme, setActiveMeme] = useState({});
   const [activeMemeStyle, setActiveMemeStyle] = useState({
     colorFont: "",
-    fontSize: "",
+    fontSize_bottom: "",
     imgWidth: "",
     top_top: "",
     top_left: "",
     top_bottom: "",
     bottom_top: "",
     bottom_left: "",
-    bottom_bottom: "",
+    fontSize_top: "",
+    width: "",
   });
   const [topText, setTopText] = useState("Downloading memes from Internet");
   const [bottomText, setbottomText] = useState("Making your own memes");
@@ -102,6 +103,15 @@ function App() {
           onChange={styleHandler}
         />
         <Settings
+          placeholder="Choose text width"
+          name="width"
+          type="range"
+          min="1"
+          max="100"
+          value={activeMemeStyle.width}
+          onChange={styleHandler}
+        />
+        <Settings
           placeholder="Move top text vertically"
           name="top_top"
           type="range"
@@ -119,15 +129,24 @@ function App() {
           value={activeMemeStyle.top_left}
           onChange={styleHandler}
         />
-        {/* <Settings
-          placeholder="Move bottom text down"
-          name="bottom_bottom"
+        <Settings
+          placeholder="Set font size for top text"
+          name="fontSize_top"
           type="range"
           min="1"
           max="100"
-          value={activeMemeStyle.bottom_bottom}
+          value={activeMemeStyle.fontSize_top}
           onChange={styleHandler}
-        /> */}
+        />
+        <Settings
+          placeholder="Set font size for bottom text"
+          name="fontSize_bottom"
+          type="range"
+          min="1"
+          max="100"
+          value={activeMemeStyle.fontSize_bottom}
+          onChange={styleHandler}
+        />
         <Settings
           placeholder="Move  bottom text vertically"
           name="bottom_top"
