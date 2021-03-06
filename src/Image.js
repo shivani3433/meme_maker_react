@@ -7,7 +7,7 @@ export default function ImageArea({
   Style,
 }) {
   var imgStyle = {
-    width: Style.imgWidth + "px",
+    width: Style.imgWidth + "%",
   };
   return (
     <div className="content mx-auto" ref={refe}>
@@ -18,7 +18,6 @@ export default function ImageArea({
           top: Style.top_top + "%",
           bottom: Style.top_bottom + "%",
           left: Style.top_left + "%",
-          right: Style.top_right + "%",
         }}
         className="top-text"
       >
@@ -32,7 +31,6 @@ export default function ImageArea({
           top: Style.bottom_top + "%",
           bottom: Style.bottom_bottom + "%",
           left: Style.bottom_left + "%",
-          right: Style.bottom_right + "%",
         }}
         className="bottom-text"
       >

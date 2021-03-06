@@ -1,4 +1,5 @@
 // import './App.css';
+import React from "react";
 import ContainerHoc from "./HOC/ContainerHOC";
 import InputField from "./TextField";
 import Button from "./Buttons";
@@ -17,11 +18,9 @@ function App() {
     fontSize: "",
     imgWidth: "",
     top_top: "",
-    top_right: "",
     top_left: "",
     top_bottom: "",
     bottom_top: "",
-    bottom_right: "",
     bottom_left: "",
     bottom_bottom: "",
   });
@@ -89,55 +88,62 @@ function App() {
         <Settings
           placeholder="Add font Color"
           name="colorFont"
+          type="color"
           value={activeMemeStyle.colorFont}
           onChange={styleHandler}
         />
         <Settings
           placeholder="Choose Image width"
           name="imgWidth"
+          type="range"
+          min="1"
+          max="100"
           value={activeMemeStyle.imgWidth}
           onChange={styleHandler}
         />
         <Settings
-          placeholder="Move top text up"
+          placeholder="Move top text vertically"
           name="top_top"
+          type="range"
+          min="1"
+          max="100"
           value={activeMemeStyle.top_top}
           onChange={styleHandler}
         />
         <Settings
-          placeholder="Move top text left"
+          placeholder="Move top text horizontally"
           name="top_left"
+          type="range"
+          min="1"
+          max="100"
           value={activeMemeStyle.top_left}
           onChange={styleHandler}
         />
-        <Settings
-          placeholder="Move top Text Right"
-          name="top_right"
-          value={activeMemeStyle.top_right}
-          onChange={styleHandler}
-        />
-        <Settings
+        {/* <Settings
           placeholder="Move bottom text down"
           name="bottom_bottom"
+          type="range"
+          min="1"
+          max="100"
           value={activeMemeStyle.bottom_bottom}
           onChange={styleHandler}
-        />
+        /> */}
         <Settings
-          placeholder="Move  bottom text up"
+          placeholder="Move  bottom text vertically"
           name="bottom_top"
+          type="range"
+          min="1"
+          max="100"
           value={activeMemeStyle.bottom_top}
           onChange={styleHandler}
         />
         <Settings
-          placeholder="Move  bottom text left"
+          placeholder="Move  bottom text horizontlly"
           name="bottom_left"
+          type="range"
+          min="1"
+          max="100"
           value={activeMemeStyle.bottom_left}
-          onChange={styleHandler}
-        />
-        <Settings
-          placeholder="Move bottom Text Right"
-          name="bottom_right"
-          value={activeMemeStyle.bottom_right}
           onChange={styleHandler}
         />
       </div>
